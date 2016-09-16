@@ -1,0 +1,21 @@
+robotGame()
+	Rx = 0
+	Ry = 0
+	// getCurrentLocation(x, y) returns color of tiles at coordinates passed as arguments
+
+	won = false
+	while (!won)
+		currentLocation = getCurrentLocation(Rx, Ry)
+		if (currentLocation == "white")
+			Ry = Ry + 1
+		else if (currentLocation == "blue")
+			Rx = Rx - 1
+		else if (currentLocation == "green")
+			Rx = Rx + 1
+		else if (currentLocation == "black")
+			Ry = Ry - 2
+		else if (currentLocation == "yellow")
+			print "You've won!"
+			won = true
+	return false
+	

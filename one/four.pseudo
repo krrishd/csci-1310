@@ -1,0 +1,28 @@
+///////////////////////////////
+/// JavaScript Version ///////
+/////////////////////////////
+
+function oneToTen() {
+	var correct = false;
+	while (!correct) {
+		var entry = Number(prompt('Enter a number between 1 and 10'));
+		if (entry !== NaN && entry >= 1 && entry <= 10) {
+			correct = true;
+		}
+	}
+	return false;
+}
+
+/////////////////////////
+// Pseudocode Version //
+///////////////////////
+
+oneToTen()
+	correct = false
+	while (!correct)
+		print "Enter a number between 1 and 10: "
+		entry = 0
+		receiveInput(entry)
+		if (entry >= 1 && entry <= 10)
+			correct = true
+	return false

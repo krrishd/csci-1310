@@ -1,0 +1,10 @@
+mpgChecker()
+	mpg = 0
+	print "How many miles per gallon does your car do?"
+	receiveInput(mpg)
+	if (mpg > 30)
+		print "Nice job"
+	else if (mpg >= 15 && mpg <= 29)
+		print "Not great, but okay."
+	else if (mpg < 15)
+		print "So bad, so very, very bad"

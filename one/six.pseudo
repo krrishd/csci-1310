@@ -1,0 +1,20 @@
+getUserChoice()
+	print "Choose from the following:\n"
+	print "   a. Fight the dragon [enter A]\n"
+	print "   b. Go home [enter B]\n"
+	print "   c. Save the princess [enter C]\n"
+	userInput = ""
+	receiveInput(userInput)
+	return userInput
+
+playGame()
+	userChoice = ""
+	while (userChoice !== "B")
+		userChoice = getUserChoice()
+		if (userChoice == "B")
+			print "Wimp"
+		else if (userChoice == "A")
+			print "You win!"
+		else if (userChoice == "C")
+			print "You saved the princess"
+	return false

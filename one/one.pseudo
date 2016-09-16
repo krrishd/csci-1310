@@ -1,0 +1,40 @@
+///////////////////////////
+/// Pseudocode Version ///
+//////////////////////////
+
+calculateUSPopulation(birthRate, deathRate, immigrationRate)
+	currentPopulation = 307357870;
+	timeInterval = 3.154 * (10^7); // 365 days converted to seconds
+	increaseInPopulation = 0;
+	
+	for(i = 0; i <== timeInterval; i++)
+		if (i % birthRate == 0)
+			increaseInPopulation++
+		else if (i % deathRate ==0)
+			increaseInPopulation--
+		else if (i % immigrationRate == 0)
+			increasePopulation++
+		
+	print (currentPopulation + increaseInPopulation)
+
+
+///////////////////////////
+/// JavaScript Version ///
+//////////////////////////
+
+function calculateUSPopulation(birthRate, deathRate, immigrationRate){
+	var currentPopulation = 307357870;
+	var timeInterval = 3.154 * (Math.pow(10, 7)); // 365 days converted to seconds
+	var increaseInPopulation = 0;
+	
+	for(i = 0; i <= timeInterval; i++) {
+		if (i % birthRate == 0) increaseInPopulation++
+		else if (i % deathRate == 0) increaseInPopulation--
+		else if (i % immigrationRate == 0) increasePopulation++
+	}
+  
+	return console.log(currentPopulation + increaseInPopulation);
+}
+
+calculateUSPopulation(7,13,35);
+

@@ -1,0 +1,4 @@
+1. I'm working alone for this particular activity.
+2. The name of my library is Boost -- it's actually a collection of a bunch of different libraries that are meant to be applied to a wide variety of applications, somewhat like a a beefed-up standard library.
+3. I was able to install and run it in a program exactly as described in the documentation for Unix-based machines.
+4. There were not any errors.

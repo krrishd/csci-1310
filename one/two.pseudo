@@ -1,0 +1,34 @@
+///////////////////////////
+/// Pseudocode Version ///
+//////////////////////////
+
+hoursMinutesSeconds(seconds)
+	hours = Math.floor(seconds/3600)
+  	remainder = seconds % 3600
+  	if (remainder >= 60)
+  		minutes = Math.floor(remainder/60)
+    	seconds = remainder % 60
+	else
+  		minutes = 0
+  		seconds = remainder
+  	print ("The time is " + hours + " hours, " + minutes + " minutes, and " + seconds + " seconds")
+
+
+
+
+///////////////////////////
+/// JavaScript Version ///
+//////////////////////////
+
+function hoursMinutesSeconds(seconds) {
+  var hours = Math.floor(seconds/3600);
+  var remainder = seconds % 3600;
+  if (remainder >= 60) {
+  	var minutes = Math.floor(remainder/60);
+    var seconds = remainder % 60;
+  } else {
+  	var minutes = 0;
+  	var seconds = remainder;
+  }
+  return console.log("The time is " + hours + " hours, " + minutes + " minutes, and " + seconds + " seconds");
+}
