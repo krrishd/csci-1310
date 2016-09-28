@@ -11,6 +11,19 @@ int reverseInt(int normal) {
 	return (stoi(reverseString));
 }
 
+double maxPossProfit(double stocks[10]) {
+	double min;
+	double max;
+	for(int i = 0; i < 10; i++) {
+		if (stocks[i] > max) {
+			max = stocks[i];
+		} else if (stocks[i] < min) {
+			min = stocks[i];
+		}
+	}
+	return (max-min);
+}
+
 int main() {
 	cout << reverseInt(123) << endl;
 }
