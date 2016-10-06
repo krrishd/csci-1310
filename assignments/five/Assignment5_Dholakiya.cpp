@@ -1,3 +1,9 @@
+/*
+*    Name: Krishna Dholakiya
+*    Recitation TA: Brennan McConnell
+*    Assignment: #5
+*/
+
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -18,6 +24,10 @@ struct Forecast {
      double precip;
 };
 
+
+// Iterates through forecast data to find the most recent day 
+// (read: closest to the end of the array) at which precipitation 
+// was nonzero
 string lastDayItRained(Forecast forecastData[]) {
     string dayItLastRained;
     for (int i = 0; i < 247; i++) {
@@ -28,6 +38,9 @@ string lastDayItRained(Forecast forecastData[]) {
     return dayItLastRained;
 }
 
+// Iterates through forecast data and adds
+// each precipitation value to a double which
+// is then returned by the function at the end
 double totalRainfall(Forecast forecastData[]) {
 	double sumOfPrecipitation;
 	for (int i = 0; i < 247; i++) {
@@ -36,6 +49,9 @@ double totalRainfall(Forecast forecastData[]) {
 	return sumOfPrecipitation;
 }
 
+// Iterates through forecast data and
+// finds the index of the date at which
+// precipitation was the highest
 int maxRainfall(Forecast forecastData[]) {
 	int index;
 	double maxPrecip = 0.0;
@@ -48,6 +64,9 @@ int maxRainfall(Forecast forecastData[]) {
 	return index;
 }
 
+// Iterates through forecast data and
+// finds the index of the date at which
+// wind speed was the highest
 int maxWindspeed(Forecast forecastData[]) {
 	int index;
 	int maxWind = 0;
@@ -60,6 +79,9 @@ int maxWindspeed(Forecast forecastData[]) {
 	return index;
 }
 
+// Iterates through forecast data and
+// finds the index of the date at which
+// high-low temperature difference was the highest
 int maxTempDifference(Forecast forecastData[]) {
 	int index;
 	int maxDiff = 0;
@@ -73,13 +95,22 @@ int maxTempDifference(Forecast forecastData[]) {
 	return index;
 }
 
+// Iterates through forecast data and
+// finds the forecast row corresponding to
+// the date provided as an argument
 Forecast forecastForDay(Forecast forecastData[], string day) {
 	Forecast result;
+	bool found = false;
 	for (int i = 0; i < 247; i++) {
 		if (forecastData[i].day == day) {
 			result = forecastData[i];
+			found = true;
 			break;
 		}
+	}
+	if (!found) {
+		cout << "Date not found." << endl;
+		return result;
 	}
 	return result;
 }
@@ -91,12 +122,12 @@ int main() {
     int positionInDataset = 0;
     int positionInResult = 0;
     Forecast arrayOfForecasts[247];
-    while (getline(forecastFile, currentLine)) {
+    while (getline(forecastFile, currentLine)) { // iterating through each line of the file
 	    stringstream ssline(currentLine);
 	    string column;
 	    Forecast currentForecast;
         int positionInRow = 0;	
-	    while (getline(ssline, column, ',')) {
+	    while (getline(ssline, column, ',')) { // iterating through each column (separated by ',')
 	        if (positionInRow == 0) {
 	            currentForecast.day = column;
 	        } else if (positionInRow == 1) {
@@ -151,6 +182,9 @@ int main() {
     cout << "Enter a date: ";
     getline(cin, date);
     Forecast dayForecast = forecastForDay(arrayOfForecasts, date);
+    if (dayForecast.day.length() < 2) {
+    	return 0;
+    }
     cout << "Forecast for " << dayForecast.day << ":" << endl;
     cout << "H: " << dayForecast.highTemp << endl;
     cout << "L: " << dayForecast.lowTemp << endl;
