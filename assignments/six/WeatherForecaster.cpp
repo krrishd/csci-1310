@@ -11,6 +11,7 @@ WeatherForecaster::~WeatherForecaster() {
 
 }
 
+// iterates through dates until a matching date is found
 bool WeatherForecaster::dayExists(string day) {
   bool exists = false;
   for (int i = 0; i < 984; i++) {
@@ -27,6 +28,7 @@ void WeatherForecaster::addDayToData(ForecastDay day) {
   index++;
 }
 
+// iterates through dates that have matching date & forecast date, prints
 void WeatherForecaster::printDaysInData() {
   for (int i = 0; i < 984; i++) {
     if (yearData[i].day == yearData[i].forecastDay) {
@@ -56,6 +58,7 @@ void WeatherForecaster::printForecastForDay(string dayInput) {
   printForecast(dayInput, dayInput);
 }
 
+// prints every day's forecast that forecasted the user input date
 void WeatherForecaster::printFourDayForecast(string dayInput) {
   for (int i = 0; i < 984; i++) {
     if (yearData[i].day == dayInput) {
@@ -64,6 +67,9 @@ void WeatherForecaster::printFourDayForecast(string dayInput) {
   }
 }
 
+// Iterates through forecast data and adds
+// each precipitation value to a double which
+// is then returned by the function at the end
 double WeatherForecaster::calculateTotalPrecipitation() {
   double totalPrecipitation = 0;
   for (int i = 0; i < 984; i++) {
@@ -74,6 +80,7 @@ double WeatherForecaster::calculateTotalPrecipitation() {
   return totalPrecipitation;
 }
 
+// iterates thru the array until the last nonzero precip value
 void WeatherForecaster::printLastDayItRained() {
   string lastDayItRained;
   for (int i = 0; i < 984; i++) {
@@ -86,6 +93,8 @@ void WeatherForecaster::printLastDayItRained() {
   cout << "It last rained on: " << lastDayItRained << endl;
 }
 
+// iterates thru the array until the last date at which the highTemp is
+// higher than the user input
 void WeatherForecaster::printLastDayAboveTemperature(int tempInput) {
   string lastDayAboveTemperature;
   for (int i = 0; i < 984; i++) {
@@ -102,6 +111,7 @@ void WeatherForecaster::printLastDayAboveTemperature(int tempInput) {
   }
 }
 
+// prints forecast for every date for which the forecastDay matches the user input
 void WeatherForecaster::printTemperatureForecastDifference(string dayInput) {
   for (int i = 0; i < 984; i++) {
     if (yearData[i].forecastDay == dayInput) {
@@ -112,6 +122,11 @@ void WeatherForecaster::printTemperatureForecastDifference(string dayInput) {
   }
 }
 
+// iterates through forecasts, finds every one for which
+// the forecastDay matches the day on which the forecast was made,
+// goes back and finds the day <x> days before where the user inputted day
+// was forecasted, takes the difference and adds it to a total which is printed
+// in the end
 void WeatherForecaster::printPredictedVsActualRainfall(int daysBefore) {
   double diff = 0;
   int daysGoneBack = 0;
@@ -132,6 +147,7 @@ void WeatherForecaster::printPredictedVsActualRainfall(int daysBefore) {
   cout << "Predicted vs. actual rainfall: " << diff << endl;
 }
 
+// iterates through forecasts until a date is found where the forecast date is the same
 string WeatherForecaster::getFirstDayInData() {
   string firstDay;
   bool dayFound = false;
@@ -144,6 +160,9 @@ string WeatherForecaster::getFirstDayInData() {
   return firstDay;
 }
 
+// iterates through forecasts and saves each date with the same forecast date to a
+// single variable, the result of that variable being the last day that meets
+// that criteria
 string WeatherForecaster::getLastDayInData() {
   string lastDay;
   for (int i = 0; i < 984; i++) {

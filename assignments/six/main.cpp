@@ -44,11 +44,6 @@ int main() {
       }
       forecaster.addDayToData(currentForecast);
     }
-    cout << "Forecast statistics:" << endl;
-    forecaster.printLastDayItRained();
-    cout << "Total rainfall: " << forecaster.calculateTotalPrecipitation() << endl;
-    cout << "First date in data: " << forecaster.getFirstDayInData() << endl;
-    cout << "Last date in data: " << forecaster.getLastDayInData() << endl;
     string enteredDate;
     cout << "Enter a date: ";
     getline(cin, enteredDate);
@@ -64,6 +59,6 @@ int main() {
       forecaster.printLastDayItRained();
       forecaster.printLastDayAboveTemperature(65);
     } else {
-      //cout << "Date not found." << endl;
+      cout << "Date not found." << endl;
     }
 }
