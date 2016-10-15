@@ -55,6 +55,14 @@ int main() {
     if (forecaster.dayExists(enteredDate)) {
       forecaster.printForecastForDay(enteredDate);
       forecaster.printFourDayForecast(enteredDate);
+      forecaster.printDaysInData();
+      cout << forecaster.getFirstDayInData() << endl;
+      cout << forecaster.getLastDayInData() << endl;
+      forecaster.printPredictedVsActualRainfall(2);
+      forecaster.printTemperatureForecastDifference("9-29-2016");
+      cout << "Total precipitation: " << forecaster.calculateTotalPrecipitation() << endl;
+      forecaster.printLastDayItRained();
+      forecaster.printLastDayAboveTemperature(65);
     } else {
       //cout << "Date not found." << endl;
     }

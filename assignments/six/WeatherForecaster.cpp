@@ -105,7 +105,7 @@ void WeatherForecaster::printLastDayAboveTemperature(int tempInput) {
 void WeatherForecaster::printTemperatureForecastDifference(string dayInput) {
   for (int i = 0; i < 984; i++) {
     if (yearData[i].forecastDay == dayInput) {
-      cout << "Forecast on " << yearData[i].day << endl;
+      cout << "Forecast for " << yearData[i].forecastDay << " issued on " << yearData[i].day << endl;
       cout << "H: " << yearData[i].highTemp << endl;
       cout << "L: " << yearData[i].lowTemp << endl;
     }
@@ -120,7 +120,7 @@ void WeatherForecaster::printPredictedVsActualRainfall(int daysBefore) {
       for (int j = i - 1; j >= 0; j--) {
         if (daysGoneBack == daysBefore) {
           if (yearData[j].forecastDay == yearData[i].forecastDay) {
-            diff += yearData[j].precip - yearData[i].precip;
+            diff += yearData[i].precip - yearData[j].precip;
           }
           daysGoneBack = 0;
           break;
