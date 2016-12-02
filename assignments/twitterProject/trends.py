@@ -109,7 +109,7 @@ if __name__ == "__main__":
         sa.usa.setFillColor(
             state.abbrev(),
             get_sentiment_color(
-                state.calculateAverageSentiment() * 100
+                state.calculateAverageSentiment()
             )
         )
 

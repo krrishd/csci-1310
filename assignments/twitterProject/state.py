@@ -15,10 +15,12 @@ class State:
     self._sentiments.append(newSentiment)
 
   def calculateAverageSentiment(self):
+    if (len(self._sentiments) == 1):
+      return None
     sum = 0
     for sentiment in self._sentiments:
       sum += sentiment
-    return (sum/len(self._sentiments))
+    return (sum/len(self._sentiments) * 100)
 
   def abbrev(self):
     """Return the two letter abbreviation for the state."""
