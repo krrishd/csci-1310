@@ -32,8 +32,8 @@ class SentimentAnalysis:
 if __name__ == "__main__":
     query = ""
     if len(sys.argv) > 1:
-        query = ' '.join(sys.argv[1:])
-        print ("Starting process for " + query + "...")
+        query = sys.argv[1:]
+        print ("Starting process for query...")
     else:
         print "Starting process..."
 
@@ -78,17 +78,18 @@ if __name__ == "__main__":
             tweetDict = json.loads(line)
         except ValueError:
             pass
-        if query in tweetDict['text']:
-            tweetsParsed.append(
-                Tweet(
-                    tweetDict['text'],
-                    0,
-                    GeoPosition(
-                        tweetDict['coordinates'][1],
-                        tweetDict['coordinates'][0]
+        for item in query:
+            if item in tweetDict['text']:
+                tweetsParsed.append(
+                    Tweet(
+                        tweetDict['text'],
+                        0,
+                        GeoPosition(
+                            tweetDict['coordinates'][1],
+                            tweetDict['coordinates'][0]
+                        )
                     )
                 )
-            )
 
     print "Conducting sentiment analysis on each tweet..."
     for tweet in tweetsParsed:
